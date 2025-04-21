@@ -16,26 +16,26 @@
                         <img src="{{ asset('storage/Test Pics/AniMangaList.png') }}" alt="" width="200">
                     </x-navbar-name>
                     <div class="my-auto space-x-4">
-                        <x-navbar-name href="/">Anime</x-navbar-name>
-                        <x-navbar-name href="/">Manga</x-navbar-name>
+                        <x-navbar-name href="/filter/anime">Anime</x-navbar-name>
+                        <x-navbar-name href="/filter/manga">Manga</x-navbar-name>
                     </div> 
                  </div>
 
                 <!-- Right Side: Login and Refgister or Profile-->
                 <div class="flex space-x-4">
                     @auth
-                        <x-navbar-name href="/">Edit Profile</x-navbar-name>
-                        <x-navbar-name href="/">Log Out</x-navbar-name>
+                        <x-navbar-name href="/user/edit">Edit Profile</x-navbar-name>
+                        <x-navbar-name href="/logout">Log Out</x-navbar-name>
 
-                        <x-navbar-name href="/">Name</x-navbar-name>
-                        <x-navbar-name href="/">
+                        <x-navbar-name href="/profile">Name</x-navbar-name>
+                        <x-navbar-name href="/profile">
                             <img src="" alt=""> 
                         </x-navbar-name>
                     @endauth
 
                     @guest
-                        <x-navbar-name href="/">Log In</x-navbar-name> 
-                        <x-navbar-name href="/">Register</x-navbar-name>
+                        <x-navbar-name href="/login">Log In</x-navbar-name> 
+                        <x-navbar-name href="/register">Register</x-navbar-name>
                     @endguest
                 </div>
 

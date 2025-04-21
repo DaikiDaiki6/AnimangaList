@@ -3,7 +3,7 @@
     <x-divider/>
 
     <x-panel>
-        <form method="POST" action="/user/create">
+        <form method="POST" action="/register">
             @csrf
             <x-label>Name</x-label>
             <x-input type="text" name="name"></x-input>
