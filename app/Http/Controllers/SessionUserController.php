@@ -15,7 +15,7 @@ class SessionUserController extends Controller
 
     public function create()
     {
-        return view('login');
+        return view('auth.login');
     }
 
 
@@ -43,7 +43,7 @@ class SessionUserController extends Controller
      */
     public function show() // add this later string $id)
     {
-        return view('profile');
+        return view('page.profile');
     }
 
     /**
@@ -51,7 +51,7 @@ class SessionUserController extends Controller
      */
     public function edit()  // add this later string $id)
     {
-        return view('edit');
+        return view('auth.edit');
     }
 
     /**

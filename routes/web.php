@@ -11,7 +11,7 @@ Route::get('/', function () { // landing page
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('/register', [RegisteredUserController::class, 'create']); //create acc view
+    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');; //create acc view
     Route::post('/register', [RegisteredUserController::class, 'store']); // create acc
 
     Route::get('/login', [SessionUserController::class, 'create'])->name('login'); //login acc view

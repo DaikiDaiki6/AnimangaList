@@ -22,20 +22,24 @@
                  </div>
 
                 <!-- Right Side: Login and Refgister or Profile-->
-                <div class="flex space-x-4">
+                <div class="flex my-auto">
                     @auth
-                        <x-navbar-name href="/user/edit">Edit Profile</x-navbar-name>
-                        <x-navbar-name href="/logout">Log Out</x-navbar-name>
-
-                        <x-navbar-name href="/profile">Name</x-navbar-name>
-                        <x-navbar-name href="/profile">
-                            <img src="" alt=""> 
+                        <div class="my-auto space-x-4">
+                            <x-navbar-name href="/user/edit">Edit Profile</x-navbar-name>
+                            <x-navbar-name href="/logout">Log Out</x-navbar-name>
+                            <x-navbar-name href="/profile">{{$user->name}}</x-navbar-name>
+                            <x-navbar-name href="/profile">
+                        </div>
+                            <img src="{{$user->profile_image}}" alt="" width="42" class="inline rounded"> 
                         </x-navbar-name>
                     @endauth
 
                     @guest
-                        <x-navbar-name href="/login">Log In</x-navbar-name> 
-                        <x-navbar-name href="/register">Register</x-navbar-name>
+                        <div class="my-auto space-x-4">
+                            <x-navbar-name href="/login">Log In</x-navbar-name> 
+                            <x-navbar-name href="/register">Register</x-navbar-name>
+                        </div>
+                        
                     @endguest
                 </div>
 
