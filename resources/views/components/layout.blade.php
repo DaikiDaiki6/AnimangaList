@@ -12,7 +12,7 @@
             <div class="flex justify-between items-center px-6">
                 <!-- Left Side: Logo Anime and Manga -->
                  <div class="flex space-x-4">
-                    <x-navbar-name href="/">
+                    <x-navbar-name href="/home">
                         <img src="{{ asset('storage/Test Pics/AniMangaList.png') }}" alt="" width="200">
                     </x-navbar-name>
                     <div class="my-auto space-x-4">
