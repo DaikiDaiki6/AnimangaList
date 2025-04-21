@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 
 class SessionUserController extends Controller
@@ -53,9 +57,30 @@ class SessionUserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request) //, string $id)
     {
-        dd('Done', $request->all());
+        // Find user id
+        $user = User::findOrFail(Auth::id());
+        // validate
+        $attributes = $request->validate([
+            'name' => ['min:1', 'nullable'],
+            'email' => ['email', 'nullable', Rule::unique('users', 'email')->ignore($user->id)],
+            'password' => ['nullable', Password::min(6)],
+        ]);
+        // edit user
+        if (!empty($attributes['name'])) {
+            $user->name = $attributes['name'];
+        }
+        if (!empty($attributes['email'])) {
+            $user->email = $attributes['email'];
+        }
+        if (!empty($attributes['password'])) {
+            $user->password = Hash::make($attributes['password']);
+        }
+        // save
+        $user->save();
+        // redirect
+        return redirect('/home')->with('success', 'Profile updated successfully!');
     }
 
     /**
