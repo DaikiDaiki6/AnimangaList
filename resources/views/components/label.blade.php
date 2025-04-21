@@ -1,0 +1,1 @@
+<label class="font-bold mt-2">{{$slot}}</label>
