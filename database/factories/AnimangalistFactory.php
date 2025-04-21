@@ -18,7 +18,7 @@ class AnimangalistFactory extends Factory
     {
         return [
             'title' => fake()->words(3, true),
-            'studio' => fake()->firstName() . 'Studio',
+            'studio' => fake()->firstName() . ' Studio',
             'type' => fake()->randomElement(['Anime', 'Manga']),
             'synopsis' => fake()->paragraph(5, true),
             'ep_count' => fake()->numberBetween(1, 100),

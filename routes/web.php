@@ -7,7 +7,7 @@ use App\Http\Controllers\SessionUserController;
 use App\Http\Controllers\RegisteredUserController;
 
 Route::get('/', function () { // landing page
-    return view('login');
+    return view('auth.login');
 });
 
 Route::middleware('guest')->group(function () {
@@ -28,4 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [PageViewController::class, 'home']); // home page
     Route::get('/filter/anime', [PageViewController::class, 'anime']); // anime page
     Route::get('/filter/manga', [PageViewController::class, 'manga']); // manga page
+
+    Route::get('/profile/{id}', [PageViewController::class, 'other_profile']);
+    Route::get('/animanga/{id}', [PageViewController::class, 'animangalist']);
 });
