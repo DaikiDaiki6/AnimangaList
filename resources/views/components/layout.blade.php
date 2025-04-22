@@ -18,6 +18,7 @@
                     <div class="my-auto space-x-4">
                         <x-navbar-name href="/filter/anime">Anime</x-navbar-name>
                         <x-navbar-name href="/filter/manga">Manga</x-navbar-name>
+                        <x-navbar-name href="/people">People</x-navbar-name>
                     </div> 
                  </div>
 
@@ -30,7 +31,7 @@
                             <x-navbar-name href="/profile">{{$user->name}}</x-navbar-name>
                             <x-navbar-name href="/profile">
                         </div>
-                            <img src="{{$user->profile_image}}" alt="" width="42" class="inline rounded"> 
+                            <img src="{{$fixImagePath($user->profile_image)}}" alt="" width="42" class="inline rounded"> 
                         </x-navbar-name>
                     @endauth
 

@@ -10,6 +10,15 @@ class Animangalist extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'studio',
+        'type',
+        'ep_count',
+        'synopsis',
+        'cover_image',
+    ];
+
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);

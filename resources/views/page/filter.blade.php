@@ -7,8 +7,10 @@
         @endif
     </x-header>
     <x-divider/>
+    <x-button-create/>
 
     @foreach($animanga as $likes)
+    <a href="/animanga/{{$likes->id}}">
         <x-panel class="flex flex-col h-full">
             
             <img src="{{$likes->cover_image}}" class="rounded-xl mx-auto object-cover">
@@ -24,5 +26,6 @@
             </div>
 
         </x-panel>
+    </a>
     @endforeach
 </x-layout>

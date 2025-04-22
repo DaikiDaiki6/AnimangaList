@@ -24,9 +24,28 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
             if (!in_array(Route::currentRouteName(), ['login', 'register'])) {
-                $view->with('user', Auth::user());
-                // dd(Auth::user());
+                $user = Auth::user();
+
+                // Pass the authenticated user to all views
+                $view->with('user', $user);
             }
+        });
+
+        // Add a global function to fix image paths
+        View::composer('*', function ($view) {
+            $view->with('fixImagePath', function ($path) {
+                if (!$path) return '';
+
+                // Convert backslashes to forward slashes
+                $path = str_replace('\\', '/', $path);
+
+                // Add leading slash if not present
+                if (!empty($path) && $path[0] !== '/') {
+                    $path = '/' . $path;
+                }
+
+                return $path;
+            });
         });
     }
 }

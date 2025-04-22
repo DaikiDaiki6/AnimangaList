@@ -1,6 +1,7 @@
 <x-layout>
     <x-header>Home</x-header>
     <x-divider/>
+    <x-button-create/>
 
     @foreach($animanga as $likes)
     <a href="/animanga/{{$likes->id}}">

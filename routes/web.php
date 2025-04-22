@@ -21,9 +21,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/user/edit', [SessionUserController::class, 'edit']); //edit acc view
     Route::post('/user/edit', [SessionUserController::class, 'update']);  //edit acc
-    // do this later Route::post('/user/{id}/edit', [SessionUserController::class, 'update']);  //edit acc
     Route::get('/profile', [SessionUserController::class, 'show']); // profile acc view
-    // do this later Route::get('/{id}/profile', [SessionUserController::class, 'show']); // profile acc view
     Route::get('/logout', [SessionUserController::class, 'destroy']);
     Route::get('/home', [PageViewController::class, 'home']); // home page
     Route::get('/filter/anime', [PageViewController::class, 'anime']); // anime page
@@ -31,4 +29,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/profile/{id}', [PageViewController::class, 'other_profile']);
     Route::get('/animanga/{id}', [PageViewController::class, 'animangalist']);
+    Route::get('/create/animanga', [PageViewController::class, 'create_view']);
+    Route::post('/create/animanga', [PageViewController::class, 'create_animanga']);
+
+    Route::get('/people', [PageViewController::class, 'people']);
 });

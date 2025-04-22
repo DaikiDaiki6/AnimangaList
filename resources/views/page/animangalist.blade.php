@@ -1,5 +1,5 @@
 <x-layout>
-    <x-header></x-header>
+    <x-header>{{$animanga->title}}</x-header>
     <x-divider/>
 
     <x-panel>
