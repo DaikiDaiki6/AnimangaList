@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('type', ['Anime', 'Manga'])->default('Anime');
             $table->string('ep_count');
             $table->text('synopsis');
-            $table->string('cover_image')->default('storage\Test Pics\cover_image.png');
+            $table->string('cover_image')->default('Test-Pics\cover_image.png');
             $table->timestamps();
         });
     }
