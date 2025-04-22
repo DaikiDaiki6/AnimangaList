@@ -2,7 +2,7 @@
     <!-- Background image -->
     <div 
         class="absolute inset-0 bg-cover bg-center hover:opacity-10 transition-opacity duration-1000 opacity-20"
-        style="background-image: url('{{ asset('storage/Test Pics/header.jpg') }}');">
+        style="background-image: url('{{ asset('Test-Pics/header.jpg') }}');">
     </div>
 
     <!-- Content -->
