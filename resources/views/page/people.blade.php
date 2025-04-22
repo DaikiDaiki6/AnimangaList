@@ -1,8 +1,8 @@
 <x-layout>
     <x-header>People</x-header>
     <x-divider/>
-    <x-button-create/>
 
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
     @foreach($users as $user)
     <a href="/profile/{{$user->id}}">
         <x-panel class="flex flex-col h-full">
@@ -15,4 +15,5 @@
         </x-panel>
     </a>
     @endforeach
+    </div>
 </x-layout>
