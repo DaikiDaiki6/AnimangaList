@@ -15,6 +15,7 @@
                 <p>Chapter: {{$animanga->ep_count}}</p>
             @endif
         </div>
+        <x-button-like :likes="$animanga"></x-button-like>
     </x-panel>
 
 </x-layout>

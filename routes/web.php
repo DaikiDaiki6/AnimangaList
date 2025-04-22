@@ -33,4 +33,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/create/animanga', [PageViewController::class, 'create_animanga']);
 
     Route::get('/people', [PageViewController::class, 'people']);
+    Route::get('/like/animanga/{id}', [PageViewController::class, 'like']);
 });

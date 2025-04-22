@@ -11,14 +11,14 @@ class PageViewController extends Controller
 {
     public function home()
     {
-        $animanga = Animangalist::all();
+        $animanga = Animangalist::latest()->orderBy('created_at', 'desc')->get();
         // dd($animanga);
         return view('page.index', ['animanga' => $animanga]);
     }
 
     public function anime()
     {
-        $animanga = Animangalist::where('type', 'Anime')->get();
+        $animanga = Animangalist::where('type', 'Anime')->orderBy('created_at', 'desc')->get();
 
         foreach ($animanga as $item) {
             $item->cover_image = '/' . str_replace('\\', '/', $item->cover_image);
@@ -48,6 +48,7 @@ class PageViewController extends Controller
     public function animangalist(string $id)
     {
         $animanga = Animangalist::findorFail($id);
+        $animanga->cover_image = '/' . str_replace('\\', '/', $animanga->cover_image);
         // dd($animanga);
         return view('page.animangalist', ['animanga' => $animanga]);
     }
@@ -84,5 +85,22 @@ class PageViewController extends Controller
         $users = User::where('id', '!=', Auth::id())->withCount('animangalists')->get();
         // dd($users);
         return view('page.people', ['users' => $users]);
+    }
+
+    public function like(string $id)
+    {
+        // find the animanga record
+        $animanga = Animangalist::findOrFail($id);
+
+        // if user is already liked
+        if ($animanga->users()->where('user_id', Auth::id())->exists()) {
+            $animanga->users()->detach(Auth::id());
+        }
+        // if user is not liked
+        else {
+            $animanga->users()->attach(Auth::id());
+        }
+        // redirect
+        return redirect()->back()->with('success', 'Done');
     }
 }

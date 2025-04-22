@@ -24,7 +24,7 @@
                     <p>Chapters: {{$likes->ep_count}}</p>
                 @endif
             </div>
-
+            <x-button-like :likes="$likes"></x-button-like>
         </x-panel>
     </a>
     @endforeach
