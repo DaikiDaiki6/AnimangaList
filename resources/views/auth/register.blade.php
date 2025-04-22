@@ -3,7 +3,7 @@
     <x-divider/>
 
     <x-panel>
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register.post') }}">
             @csrf
             <x-label>Name</x-label>
             <x-input type="text" name="name"></x-input>
