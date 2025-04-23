@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('profile_image')->default('Test-Pics\default_profile.png');
+            $table->string('profile_image')->default('Test-Pics/default_profile.png');
             $table->string('password');
             // Debug parts
             $table->boolean('admin')->default('false');
