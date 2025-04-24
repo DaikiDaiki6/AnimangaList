@@ -29,6 +29,7 @@ class AnimangalistPolicy
      */
     public function create(User $user): bool
     {
+
         return $user->admin === "true";
     }
 

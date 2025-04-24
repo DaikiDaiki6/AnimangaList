@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/{id}', [PageViewController::class, 'other_profile']);
     Route::get('/animanga/{id}', [PageViewController::class, 'animangalist']);
 
-    Route::middleware('can:create, App/Models/Animangalist')->group(function () {
+    Route::middleware('can:create,App\Models\Animangalist')->group(function () {
         Route::get('/create/animanga', [PageViewController::class, 'create_view']);
         Route::post('/create/animanga', [PageViewController::class, 'create_animanga']);
     });
