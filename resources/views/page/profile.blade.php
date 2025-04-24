@@ -8,7 +8,7 @@
             <h1 class="text-2xl font-bold">{{$user->name}}</h1>
             <p>{{$user->email}}</p>
             <h1 class="text-xl font-bold">Role</h1>
-            @if($user->admin === true)
+            @if($user->admin === "true")
                 <p>{{$user->name}} is an admin.</p>
             @else
                 <p>{{$user->name}} is a user.</p>
