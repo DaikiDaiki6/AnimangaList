@@ -41,7 +41,7 @@ class PageViewController extends Controller
     public function other_profile(string $id)
     {
         $users = User::findorFail($id);
-        // dd($users);
+        // dump($users);
         return view('page.other_profile', ['users' => $users]);
     }
 
